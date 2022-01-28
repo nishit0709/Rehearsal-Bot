@@ -14,7 +14,7 @@ input.addEventListener("keyup", async function(event) {
                             </div>          
                         </div>
                         `
-        fetch("/",{
+        fetch("/message",{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -21,32 +21,29 @@ if (navigator.mediaDevices.getUserMedia) {
     mediaRecorder.onstop = async function(e) {
       console.log("data available after MediaRecorder.stop() called.");
       const blob = new Blob(chunks, { 'type': 'audio/mp3' });
-      console.log(blob)
-      var fd = new FormData();
-      fd.append('data', blob);
-      chunks = [];
-      
+      chunks = []
+      var fd = new FormData()
+      fd.append('blob', blob)
       fetch("/audio",{
         method: 'POST',
         body: fd,
       })
       .then(response => response.json())
       .then(json => {
-    console.log(json)
-    document.getElementById("chatMessages")
-    .innerHTML += `
-            <div class="chatbox__messages">
-              <div class="chatbox__messages__user-message">
-              <div class="chatbox__messages__user-message--ind-message" style="float:right">
-                <p class="name">You</p>
-                <br/>
-                <p class="message">`+ json.data +`</p>
-              </div>
-              </div>          
-            </div>
-            `
+        console.log(json)
+        document.getElementById("chatMessages")
+        .innerHTML += `
+                      <div class="chatbox__messages">
+                        <div class="chatbox__messages__user-message">
+                        <div class="chatbox__messages__user-message--ind-message" style="float:right">
+                          <p class="name">You</p>
+                          <br/>
+                          <p class="message">`+ json.data +`</p>
+                        </div>
+                        </div>          
+                      </div>
+                      `
       })
-
       //Export the audio file here and convert to wav in python
       console.log("recorder stopped");  
     }
