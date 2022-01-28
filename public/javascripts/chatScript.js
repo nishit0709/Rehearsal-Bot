@@ -14,28 +14,28 @@ input.addEventListener("keyup", async function(event) {
                             </div>          
                         </div>
                         `
-        fetch("/message",{
+        fetch("/",{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({msg: input.value}),
+        body: JSON.stringify({data: input.value}),
         })
         .then(response => response.json())
-        .then(data =>{
-        document.getElementById("chatMessages")
-        .innerHTML += `
-                        <div class="chatbox__messages">
-                            <div class="chatbox__messages__user-message">
-                            <div class="chatbox__messages__user-message--ind-message" style="float:left">
-                                <p class="name">Bot</p>
-                                <br/>
-                                <p class="message">`+ data.msg +`</p>
+        .then(json =>{
+            document.getElementById("chatMessages")
+            .innerHTML += `
+                            <div class="chatbox__messages">
+                                <div class="chatbox__messages__user-message">
+                                <div class="chatbox__messages__user-message--ind-message" style="float:left">
+                                    <p class="name">Bot</p>
+                                    <br/>
+                                    <p class="message">`+ json.data +`</p>
+                                </div>
+                                </div>          
                             </div>
-                            </div>          
-                        </div>
-                        `
-        })
+                            `
+            })
         .catch((error) => {
         console.error('Error:', error);
         });

@@ -6,4 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.post('/',(req,res)=>{
+  console.log(req.body)
+  var response = {data:"success"}
+  res.send(response)
+})
+
 module.exports = router;
