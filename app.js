@@ -4,7 +4,6 @@ var path = require('path');
 var logger = require('morgan');
 
 var chatRouter = require('./routes/chat');
-var usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -18,7 +17,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', chatRouter);
-app.use('/users', usersRouter);
 
 
 

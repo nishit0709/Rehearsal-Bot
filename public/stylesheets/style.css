@@ -113,14 +113,16 @@ html, body {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.mic{
+#micButton{
   position: absolute;
   right: 0.5em;
   bottom: 1.3em;
-  width: auto;
-  height: 25px;
+  outline: none;
+  border:none;
+  background-color: transparent;
 }
 
-.mic:hover{
-  cursor: pointer;
+.mic{
+  width: auto;
+  height: 25px;
 }

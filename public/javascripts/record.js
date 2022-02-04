@@ -1,3 +1,16 @@
+const mic = document.getElementById("mic")
+const micButton = document.getElementById("micButton")
+
+function invertMic(color){
+  if(color == 0){
+    mic.setAttribute('style', '-webkit-filter: invert(1);filter: invert(0);')
+    micButton.disabled = false
+  }else{
+    mic.setAttribute('style', '-webkit-filter: invert(1);filter: invert(1);')
+    micButton.disabled = true
+  }
+}
+
 if (navigator.mediaDevices.getUserMedia) {
   console.log('getUserMedia supported.');
   const constraints = { audio: true };
@@ -5,16 +18,16 @@ if (navigator.mediaDevices.getUserMedia) {
 
   let onSuccess = function(stream) {
     const mediaRecorder = new MediaRecorder(stream);
-    mic.onclick = function() {
+    micButton.onclick = function() {
       mediaRecorder.start();
       console.log(mediaRecorder.state);
       console.log("recorder started");
-      //change mic background
+      invertMic(1)
       setTimeout(function() {
           mediaRecorder.stop();
+          invertMic(0)
           console.log(mediaRecorder.state);
           console.log("recorder stopped");
-          //change mic background
       },5000)
     }
 

@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
     cb(null, 'JS/Sounds')
   },
   filename: (req, file, cb) => {
-    cb(null, 'userSound')
+    cb(null, 'user_sound_blob')
   }
 })
 
