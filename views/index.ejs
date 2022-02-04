@@ -1,24 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-    <title>Rehersal Bot</title>
-  </head>
-  <body>
-    <div class='container'>
-      <h1>Rehersal Chatbot</h1>
-      <div class='chatbox'>
-        <div id="chatMessages"></div>
-        <input type="text" placeholder="Your message" id="userMessage" autocomplete="off">
-        <img class="mic" id="mic" src="images/microphone.png" alt="mic">
-      </div>
-      
-    <script src="javascripts/chatScript.js"></script>
-    <script src="javascripts/record.js"></script>
-  </body>
+<!DOCTYPE html><html class=''>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <meta charset='UTF-8'>
+        <meta name="robots" content="noindex">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <title>Rehersal Bot</title>
+    </head>
+    <body>
+        <div class='container'>
+        <h1>Rehersal Bot</h1>
+        <div class='chatbox'>            
+            <div class="chatbox__messages" style="overflow-y: scroll; height: 92%;" id="chatMessages"></div>            
+            <input type="text" placeholder="Type Message" id="userMessage" autocomplete="off">
+            <img class="mic" id="mic" src="images/microphone.png" alt="mic">
+            <script src="/javascripts/chatScript.js"></script>
+            <script src="/javascripts/record.js"></script>
+        </div>
+
+        
+    </body>
 </html>
