@@ -36,10 +36,8 @@ function getPlay(Script,playScript){
 }
 
 //export Function
-function getScript(fileName){
-    const fs = require("fs")
-    var script = fs.readFileSync(fileName,{encoding:"utf-8"})
-    script = sanitizeScript(script)
+function getScript(data){
+    script = sanitizeScript(data)
     play = getCharacters(script)
     play = getPlay(script,play)
     return play

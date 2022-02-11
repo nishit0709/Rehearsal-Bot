@@ -72,29 +72,33 @@ html, body {
   color: #FFF;
   font-size: 0.7em;
   margin: 0 2.8em;
+  overflow-wrap: anywhere;
 }
 
-.chatbox p {
+.chatbox p{
   float: left;
   text-align: left;
   margin: -0.25em 2em;
   font-size: 0.7em;
   font-weight: 300;
   color: #FFF;
-  width: 200px;
 }
 
-.chatbox input {
+.chatbox textarea {
   background: rgba(255, 255, 255, 0.03);
   position: absolute;
   bottom: 0;
   left: 0;
   border: none;
-  width: 95%;
   padding: 1.2em;
   outline: none;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 300;
+  resize: none;  
+}
+
+textarea::-webkit-scrollbar{
+  display: none;
 }
 
 ::-webkit-input-placeholder {

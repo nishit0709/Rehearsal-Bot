@@ -1,6 +1,8 @@
 const express = require('express');
 const multer = require('multer')
 const router = express.Router();
+const recog = require("../JS/speech_to_text")
+const play = require("../JS/getScript")
 
 const storage = multer.diskStorage({
   destination: (req,file,cb) =>{
@@ -17,12 +19,19 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.post('/message',(req,res)=>{
+router.post('/script',(req,res)=>{
+  const script = play.getScript(req.body.data)
+  res.send()
+})
+
+router.post('/message',(req,res)=>{  
   res.send({data:"success"})
 })
 
 router.post('/audio', upload.single('blob'), (req,res)=>{
-  res.send({data:"audio file recieved"})
+  recog.speechToText().then((text) => {
+    res.send({user:text, bot:"response recieved"})
+  })
 })
 
 module.exports = router;

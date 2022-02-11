@@ -43,17 +43,8 @@ if (navigator.mediaDevices.getUserMedia) {
       })
       .then(response => response.json())
       .then(json => {
-        console.log(json)
-        document.getElementById("chatMessages")
-          .innerHTML += `
-                <div class="chatbox__messages__user-message" >
-                  <div class="chatbox__messages__user-message--ind-message" style="float: left;">
-                      <p class="name">You</p>
-                      <br/>
-                      <p class="message">` + json.data + `</p>
-                  </div>
-                </div>
-                `
+        userResponse(json.user)
+        botResponse(json.bot)
       })
       //Export the audio file here and convert to wav in python
       console.log("recorder stopped");  
