@@ -44,3 +44,5 @@ function getScript(fileName){
     play = getPlay(script,play)
     return play
 }
+
+module.exports.getScript = getScript
