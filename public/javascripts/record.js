@@ -13,7 +13,6 @@ function invertMic(color){
 }
 
 if (navigator.mediaDevices.getUserMedia) {
-  console.log('getUserMedia supported.');
   const constraints = { audio: true };
   let chunks = [];
 
@@ -21,36 +20,24 @@ if (navigator.mediaDevices.getUserMedia) {
     const mediaRecorder = new MediaRecorder(stream);
     micButton.onclick = function() {
       mediaRecorder.start();
-      console.log(mediaRecorder.state);
-      console.log("recorder started");
       invertMic(1)
       setTimeout(function() {
           mediaRecorder.stop();
           invertMic(0)
-          console.log(mediaRecorder.state);
-          console.log("recorder stopped");
       },5000)
-    }
-
-    mediaRecorder.onstop = async function(e) {
-      console.log("data available after MediaRecorder.stop() called.");
-      const blob = new Blob(chunks, { 'type': 'audio/mp3' });
-      chunks = []
-
-      socket.emit("audio",blob)
-      socket.on("userSpeech",(msg)=>{
-        userResponse(msg)
-      })
-      socket.on("botSpeech",(msg)=>{
-        botResponse(msg)
-      })
-      console.log("recorder stopped");  
     }
 
     mediaRecorder.ondataavailable = function(e) {
       console.log("data available")
       chunks.push(e.data);
     }
+
+    mediaRecorder.onstop = async function(e) {
+      const blob = new Blob(chunks, { 'type': 'audio/mp3' });
+      chunks = []
+      socket.emit("audio",blob)
+    }
+    
   }
 
   let onError = function(err) {

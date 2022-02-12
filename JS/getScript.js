@@ -43,4 +43,4 @@ function getScript(data){
     return play
 }
 
-module.exports.getScript = getScript
+module.exports = getScript

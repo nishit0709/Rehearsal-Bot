@@ -33,4 +33,4 @@ async function speechToText(){
     return output
 }
 
-module.exports.speechToText = speechToText
+module.exports = speechToText

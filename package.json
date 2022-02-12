@@ -10,7 +10,9 @@
     "events": "^3.3.0",
     "express": "~4.16.1",
     "ffmpeg": "^0.0.4",
+    "file-api": "^0.10.4",
     "get-uv-event-loop-napi-h": "^1.0.6",
+    "gtts": "^0.2.1",
     "http": "^0.0.1-security",
     "socket.io": "^4.4.1"
   }

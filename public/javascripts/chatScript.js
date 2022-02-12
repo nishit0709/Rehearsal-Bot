@@ -1,21 +1,12 @@
+var socket = io()
 var input = document.getElementById("userMessage");
 input.addEventListener("keyup", async function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
-        userResponse(input.value)
         var msg = input.value
         input.value = ""
-        var route = msg.length > 100 ? "/script":"/message"
-        fetch(route,{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({data: msg}),
-        })
-        .then(response => response.json())
-        .then(json => botResponse(json.data))
-        .catch(error => console.error)
+        userResponse(msg)
+        socket.emit("msgFromClient",msg)
     }
 });
 
