@@ -15,11 +15,11 @@ input.addEventListener("keyup", async function(event) {
         })
         .then(response => response.json())
         .then(json => botResponse(json.data))
-        .catch((error) => console.error)
+        .catch(error => console.error)
     }
 });
 
 
-botResponse("Welcome to Rehearsal app, you'll be assited by Julia here, an bot(in devel, not really a bot) who shall be helping you rehearse your plays/scripts")
-botResponse("Hello User, I am Julia, I hope you are having a good day")
+botResponse("Welcome to Rehearsal app, you'll be assited by Carlyn here, a bot(in devel, not really a bot) who shall be helping you rehearse your plays/scripts")
+botResponse("Hello User, I am Carlyn, I hope you are having a good day")
 botResponse("Please paste the script you would like to rehearse in the chatbox and hit enter")

@@ -3,8 +3,8 @@ function botResponse(botMessage){
     objDiv.innerHTML += `
     <div class="chatbox__messages__user-message" >
         <div class="chatbox__messages__user-message--ind-message" style="float: left;">
-            <p class="name">Julia</p>
-            <br/>
+            <p class="name">Carlyn</p>
+            <br>
             <p class="message">` + botMessage  + `</p>
         </div>
     </div>
@@ -17,7 +17,7 @@ function userResponse(userMessage){
     <div class="chatbox__messages__user-message" >
         <div class="chatbox__messages__user-message--ind-message" style="float: right;">
             <p class="name">You</p>
-            <br/>
+            <br>
             <p class="message">` + userMessage  + `</p>
         </div>
     </div>

@@ -1,3 +1,4 @@
+var socket = io()
 const mic = document.getElementById("mic")
 const micButton = document.getElementById("micButton")
 
@@ -35,18 +36,14 @@ if (navigator.mediaDevices.getUserMedia) {
       console.log("data available after MediaRecorder.stop() called.");
       const blob = new Blob(chunks, { 'type': 'audio/mp3' });
       chunks = []
-      var fd = new FormData()
-      fd.append('blob', blob)
-      fetch("/audio",{
-        method: 'POST',
-        body: fd,
+
+      socket.emit("audio",blob)
+      socket.on("userSpeech",(msg)=>{
+        userResponse(msg)
       })
-      .then(response => response.json())
-      .then(json => {
-        userResponse(json.user)
-        botResponse(json.bot)
+      socket.on("botSpeech",(msg)=>{
+        botResponse(msg)
       })
-      //Export the audio file here and convert to wav in python
       console.log("recorder stopped");  
     }
 

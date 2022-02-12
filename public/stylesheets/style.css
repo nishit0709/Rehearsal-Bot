@@ -66,11 +66,13 @@ html, body {
 .chatbox__messages__user-message--ind-message > p.name {
   color: #FFF;
   font-size: 1em;
-}
+  font-weight: bolder;
+  margin-bottom: 2px;
+  }
 
 .chatbox__messages__user-message--ind-message > p.message {
   color: #FFF;
-  font-size: 0.7em;
+  font-size: 0.8em;
   margin: 0 2.8em;
   overflow-wrap: anywhere;
 }
