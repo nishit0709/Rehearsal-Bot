@@ -24,15 +24,18 @@ io.on("connection",(socket)=>{
     recognize().then((speech)=>{
       socket.emit("userSpeech",speech)  
     })
+
+    //Code for bot audio response
+    
+    // synthesize([Bot Speech here])
+    // var data = fs.readFileSync("JS/Sounds/botSpeech.mp3")
+    // socket.emit("botSpeech",data)
   })
 
   socket.on('msgFromClient',(text)=>{
-    synthesize("Success")
-    var data = fs.readFileSync("JS/Sounds/botSpeech.mp3")
-    socket.emit("botSpeech",data)
-    socket.emit("msgFromServer","Success")
+    //code for text response of bot here
+    socket.emit("msgFromServer","We recieved your message")
   })
-  
 })
 
 
